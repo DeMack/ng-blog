@@ -17,10 +17,6 @@ export class BlogFetcherService {
   ) { }
 
   getBlogs(): Observable<Blog[]> {
-    return this.httpClient
-    .get<Blog[]>(blogUrl)
-    .pipe(
-      tap(blogs => console.log(blogs))
-    );
+    return this.httpClient.get<Blog[]>(blogUrl);
   }
 }

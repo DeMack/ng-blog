@@ -7,6 +7,8 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { InMemoryDataService } from './in-memory-data.service';
 
+import { BlogFetcherService } from './blog-fetcher.service';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -18,7 +20,7 @@ import { InMemoryDataService } from './in-memory-data.service';
         InMemoryDataService, {dataEncapsulation: false}
     )
   ],
-  providers: [],
+  providers: [ BlogFetcherService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
