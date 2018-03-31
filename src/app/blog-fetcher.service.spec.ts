@@ -30,4 +30,12 @@ describe('BlogFetcherService', () => {
       expect(value).toEqual(jasmine.arrayContaining([blog]));
     });
   }));
+
+  it('#fetchBlogById should return a Blog', inject([BlogFetcherService], (service: BlogFetcherService) => {
+    service.fetchBlogById('id1').subscribe(value => {
+      const blog = {id: 'id1', title: 'TestPost', body: 'Test body', date: new Date(), tags: ['testTag1', 'testTag2'] };
+      expect(value).toEqual(blog);
+    });
+  }));
 });
+

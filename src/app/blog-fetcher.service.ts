@@ -19,4 +19,8 @@ export class BlogFetcherService {
   getBlogs(): Observable<Blog[]> {
     return this.httpClient.get<Blog[]>(blogUrl);
   }
+
+  fetchBlogById(id: string): Observable<Blog> {
+    return this.httpClient.get<Blog>(`${blogUrl}?id=${id}`);
+  }
 }
