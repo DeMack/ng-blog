@@ -1,6 +1,5 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 
-const UUID = require('uuid/v4');
 export class InMemoryDataService implements InMemoryDbService {
 
   createDb() {
