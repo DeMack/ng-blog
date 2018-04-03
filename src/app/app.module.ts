@@ -16,9 +16,7 @@ import { BlogFetcherService } from './blog-fetcher.service';
   imports: [
     BrowserModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-        InMemoryDataService, {dataEncapsulation: false}
-    )
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService)
   ],
   providers: [ BlogFetcherService ],
   bootstrap: [AppComponent]
