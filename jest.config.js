@@ -1,4 +1,5 @@
 module.exports = {
+  verbose: true,
   globals: {
     '__TS_CONFIG__': {
       'target': 'es6',

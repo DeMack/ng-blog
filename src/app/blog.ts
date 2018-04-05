@@ -5,6 +5,6 @@ export class Blog {
   project: string;
   tools: string[];
   tags: string[];
-  biblography: string[];
+  bibliography: string[];
   body: string;
 }
