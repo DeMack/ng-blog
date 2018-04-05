@@ -8,6 +8,11 @@ describe('BlogComponent', () => {
   let component: BlogComponent;
   let fixture: ComponentFixture<BlogComponent>;
   let title: DebugElement;
+  let date: DebugElement;
+  let body: DebugElement;
+  let tools: DebugElement[];
+  let bibs: DebugElement[];
+  let tags: DebugElement;
 
   const expectedBlog = {
     id: 'id1',
@@ -32,16 +37,28 @@ describe('BlogComponent', () => {
     component = fixture.componentInstance;
 
     title = fixture.debugElement.query(By.css('h1'));
+    date = fixture.debugElement.query(By.css('#date'));
+    body = fixture.debugElement.query(By.css('#blog-body'));
 
     component.blog = expectedBlog;
     fixture.detectChanges();
+
+    tools = fixture.debugElement.queryAll(By.css('.tool'));
+    bibs = fixture.debugElement.queryAll(By.css('.biblio'));
+    tags = fixture.debugElement.query(By.css('.tag'));
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have title "TestPost" in h1', () => {
+  it('should have all parts populated', () => {
+    expect.assertions(6);
     expect(title.nativeElement.textContent).toEqual(expectedBlog.title);
+    expect(date.nativeElement.textContent).toEqual(expectedBlog.date);
+    expect(body.nativeElement.textContent).toEqual(expectedBlog.body);
+    expect(tools.length).toEqual(expectedBlog.tools.length);
+    expect(bibs.length).toEqual(expectedBlog.bibliography.length);
+    expect(tags.nativeElement.textContent).toEqual(expectedBlog.tags.join(', '));
   });
 });

@@ -2,19 +2,22 @@
 <div id="author">by: Daniel McKerrocher</div>
 <div id="date">{{ blog.date }}</div>
 <div id="blog-body" [innerHtml]="blog.body"></div>
-<div id="tools"> Tools Used:
+<div id="tools" *ngIf="blog.tools"> 
+  <h3>Tools Used:</h3>
   <ul>
-    <li *ngFor="let tool of tools">{{ tool }}</li>
+    <li class="tool" *ngFor="let tool of blog.tools">{{ tool }}</li>
   </ul>
 </div>
-<div id="bib">Bibliography:
+<div id="bib" *ngIf="blog.bibliography">
+  <h3>Bibliography:</h3>
   <ul>
-    <li *ngFor="let bib of bibliography">{{ bib }}</li>
+    <li class="biblio" *ngFor="let bib of blog.bibliography">
+      <a href="bib">{{ bib }}</a>
+    </li>
   </ul>
 </div>
-<div id="tags">
-  <ul>
-    <li *ngFor="let tag of tags">{{ tag }}</li>
-  </ul>
+<div id="tags" *ngIf="blog.tags">
+  <h3>Tags:</h3>
+  [ <span class="tag">{{ blog.tags.join(', ') }}</span> ]
 </div>
 

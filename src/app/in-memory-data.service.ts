@@ -13,7 +13,7 @@ export class InMemoryDataService implements InMemoryDbService {
         project: 'ng-blog',
         tools: [ 'Nokia 6', 'Android 8.0', 'Termux', 'vim', 'Nodejs', 'npm', 'yarn', 'Angular5', 'TypeScript' ],
         tags: [ 'android', 'vim', 'angular', 'fe', 'front end', 'termux', 'node', 'nodejs', 'npm', 'yarn', 'typescript' ],
-        biblography: [
+        bibliography: [
           'https://medium.freecodecamp.org/building-a-node-js-application-on-android-part-1-termux-vim-and-node-js-dfa90c28958f',
           'https://medium.com/actualize-network/how-to-learn-vim-a-four-week-plan-cd8b376a9b85',
           'http://blog.88mph.io/2017/11/08/equipping-vim-for-typescript-a-newcomers-guide/',
