@@ -1,6 +1,8 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
+import { BlogComponent } from './blog/blog.component';
+
 import { BlogFetcherService } from './blog-fetcher.service';
 
 describe('AppComponent', () => {
@@ -10,7 +12,8 @@ describe('AppComponent', () => {
     blogFetcherStub = {};
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        BlogComponent
       ],
       providers: [ { provide: BlogFetcherService, useValue: blogFetcherStub } ]
     }).compileComponents();
