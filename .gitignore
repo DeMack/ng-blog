@@ -17,6 +17,8 @@
 *.launch
 .settings/
 *.sublime-workspace
+*.swp
+*.swo
 
 # IDE - VSCode
 .vscode/*
@@ -42,3 +44,6 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# Unnecessary Test Tile
+test-report.xml
