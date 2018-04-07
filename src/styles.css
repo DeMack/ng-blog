@@ -1,4 +1,6 @@
-/* The below was pulled from https://stackoverflow.com/a/1636635 */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+/* The below was pulled from https://stackoverflow.com/a/1636635 to have lettered with parentheses <ul> */
 ol {
     counter-reset: list;
 }
