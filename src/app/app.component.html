@@ -1,5 +1,5 @@
 <mat-toolbar color="primary" class="mat-display-2">Clever Title Here</mat-toolbar>
 <mat-toolbar color="accent">
-  <button mat-button *ngFor="let blog of blogs">{{ blog.title }}</button>
+  <button mat-button *ngFor="let blog of blogs" (click)="onClickBlog(blog.id)">{{ blog.title }}</button>
 </mat-toolbar>
 <app-blog [blog]="blog"></app-blog>

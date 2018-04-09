@@ -17,6 +17,14 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.blogFetcherService.getBlogs().subscribe(blogs => this.blogs = blogs);
-    this.blogFetcherService.fetchBlogById('3eca08fd-b874-4054-a1ef-a7f62720332c').subscribe(value => this.blog = value);
+    this.fetchBlog('3eca08fd-b874-4054-a1ef-a7f62720332c');
+  }
+
+  onClickBlog(id: string) {
+    this.fetchBlog(id);
+  }
+
+ fetchBlog(id: string) {
+    this.blogFetcherService.fetchBlogById(id).subscribe(value => this.blog = value);
   }
 }
