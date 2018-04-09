@@ -1,6 +1,10 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbar, MatSidenavModule } from '@angular/material';
+import { Platform } from '@angular/cdk/platform';
+
 import { BlogComponent } from './blog/blog.component';
 
 import { BlogFetcherService } from './blog-fetcher.service';
@@ -11,11 +15,15 @@ describe('AppComponent', () => {
   beforeEach(async(() => {
     blogFetcherStub = {};
     TestBed.configureTestingModule({
+      imports: [ MatSidenavModule, BrowserAnimationsModule ],
       declarations: [
         AppComponent,
+        MatToolbar,
         BlogComponent
       ],
-      providers: [ { provide: BlogFetcherService, useValue: blogFetcherStub } ]
+      providers: [
+        { provide: BlogFetcherService, useValue: blogFetcherStub },
+      ]
     }).compileComponents();
   }));
 
