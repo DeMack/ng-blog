@@ -13,8 +13,8 @@ describe('InMemoryDataService', () => {
     expect(service).toBeTruthy();
   }));
 
-  it('should provied three blogs', inject([InMemoryDataService], (service: InMemoryDataService) => {
+  it('should provied lots of blogs', inject([InMemoryDataService], (service: InMemoryDataService) => {
     const blogs = service.createDb();
-    expect(blogs.blogs.length).toBe(3);
+    expect(blogs.blogs.length).toBeGreaterThan(1);
   }));
 });

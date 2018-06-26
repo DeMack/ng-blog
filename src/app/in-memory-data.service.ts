@@ -4,8 +4,30 @@ export class InMemoryDataService implements InMemoryDbService {
 
   createDb() {
     const blogs = [
-      { id: 'id1', title: 'TestPost', body: 'Test body', date: '01032017', tags: ['testTag1', 'testTag2'] },
-      { id: 'id2', title: 'TestPost2', body: 'Test body 2', date: new Date(), tags: ['testTag1', 'testTag3'] },
+      //region general
+      {
+        id: '92b1b781-83fa-42cb-8af7-d46b710a6b25',
+        title: 'Inner Manager',
+        date: '06/25/2017',
+        project: 'general',
+        body: `# My Inner Bureaucrat
+I have a lot of ideas. I mean, a ton of ideas. I have more ideas in my head than I could possibly ever have time to complete, and I'm sure I'm not alone in that. Any of those ideas could be huge 
+(OK, if I'm being honest, maybe not _any_). Because of this awe-inspiring plethora of wonderful ideas running around my head like gazelles in an African savannah I have a problem. What do I work on?
+I'll admit too many ideas isn't a bad problem to have, but it is a problem. Any one of them would be exciting to work on, made the more so because they are my ideas. There are so many hours in a day,
+so I can only work on so much at a time. 
+
+I could actually start all of them, and work on each little by little, but as any Kanaban adherent will tell you, the quickest way to deliver value is limiting work in progress. This is especially 
+true for a one man army. That being said, I actually have two buffers open in vim as I write this... To answer this I've started calling on my inner bureaucrat. In cartoons you could often see a 
+little angel and a devil on a character's shoulders; well, for me on one side I have a bureaucrat and the other a slacker. To be honest, the slacker is definitely the driver far more often, but
+I've started seeing a very real need for the bureaucrat. He keeps me organized...sort of...and has helped me understand I can't do everything all at once, so he's the one that's directing my focus
+and the one who tries to listen to my justifications for what project I want to work on when, and ultimately the one that tells when I've totally missed the mark on an idea to bring me back on track.
+
+Side note, this post absolutely had his approval.
+`,
+        tags: [ 'rant', 'advice', 'practice', 'productivity' ],
+      },
+      //endregion
+      //region ng-blog
       {
         id: '3eca08fd-b874-4054-a1ef-a7f62720332c',
         title: 'The Story so Far',
@@ -125,7 +147,102 @@ me.`,
           'https://developer.telerik.com/featured/quick-angular-2-hosting-angular-cli-github-pages/',
           'https://blog.cloudboost.io/angular-jest-wallabyjs-why-it-is-the-ideal-combination-and-how-to-configure-b4cbe2eff4b3'
         ]
+      },
+      {
+        id: '111d243d-285b-4d2d-af41-f93583337892',
+        title: 'Markdown Fight',
+        date: '06/27/2018',
+        project: 'ng-blog',
+        body: `## Adding Markdown
+I have markdown support, though getting here was way more trouble than I expected. In order to provide support for 
+markdown I decided to use [this](https://github.com/jfcere/ngx-markdown) library. The documentation is great, and it provides
+a ton of great features, so it should be super simple, right? Definitely not.
+
+## Inevitable Headaches
+No matter what feature I'm working on, I always seem to run into completely random nonsensical problems; this time was no exception. 
+My grand design was to have a nice organized project and db. In the db I just wanted to store a string value with the path to a 
+corresponding \`.md\` file which would be stored in the \`assets\` folder, thus keeping the in memory \`JSON\` db to a nice, manageable,  and 
+readable size.
+
+Didn't happen.
+
+At first I thought maybe I just the path wrong. This was honestly a fear that I never quite shook, so in every subsequent step while
+trying to fix this it was combined with trying every version of the file path I could think of. It never worked.
+
+## A Hint of Success
+After failing to find a path that led to the proper file, I decided maybe that wasn't it (but, again, I was never really convinced 
+of that). Then I thought maybe it was the component I was trying to work, so to test that I just hard-coded the text into the body
+of my blog component. That worked! But that success was a small joy; a blog site isn't much use if there's only one hard-coded blog.
+So, armed with the confidence that the component was actually working, I dug in again
+
+## Freaking Assets
+It was then that I realized that even though my blog entry was actually in the \`assets\` folder, it wasn't actually getting bundled
+when I used \`ng serve\`. After reading in a few places, I thought maybe the problem had something to do with that command, so I tried
+to build and publish to see what it looked like live. That worked about as well as a "piano player in a marching band" (- Larry the
+Cable Guy). 
+
+I then tried to bring in an image file to see if there was something wrong with the way I had my assets configured in my \`angular.json\`.
+The random internet image worked perfectly well to my extreme frustration. After spending way too long trying to rename things and 
+move things, even trying some other random library, and do anything and everything I could think of to find some way to get the markdown
+file to bundle, I have come to a conclusion: the Angular CLI only bundles something in the assets folder if it is explicitly used 
+from the start. Since I was trying to load the markdown file dynamically, the CLI - probably in some kind of attempt to keep the
+bundles down to a manageable size - was not grabbing my file.
+
+## Solution
+That conclusion could very well be wrong, and, if it is, I hope to find that out, but wrong or not, I never could get my markdown file
+into my assets folder. That meant that I had to pull the bodies of the markdown files into the in memory database - exactly what I
+set out to avoid in the first place. Luckily I didn't try and change it because of any functional necessity, so I was able to fall
+back on that. I am now still typing up my blogs in separate \`.md\` files (which you can see if you check out the repo), and then
+copying the files into the db. Not exactly an ideal solution, but it works.
+
+`,
+        tools: [ 'WebStorm', 'MacBook', 'ngx-markdown' ],
+        tags: [ 'blog', 'angular', 'markdown', 'fe', 'front end' ],
+        bibliography: [
+          `https://github.com/jfcere/ngx-markdown`
+        ]
+      },
+      //endregion
+      //region blockchain
+      {
+        id: '4d5c3efc-454b-4bd3-b1db-f7d23680f4df',
+        title: 'First Link',
+        date: '06/24/2018',
+        project: 'blockchain',
+        body: `## Why Blockchain?
+I feel like that's the first question that always has to be asked at the start of any project. Whether it's a personal project or professional, there's always one task master that must be heard:
+Time. That usually translates to money in professional projects, but the question is always the same: Why is this worth my/our time? If you've somehow stumbled on this and have decided to read it,
+I'm assuming you know - at least implicitly - your own answers to this question, but I want to go through mine.
+
+### **Just cool**
+For me this is still a new bit of technology, and I love new toys.
+### **Interesting**
+I'm always on the lookout for new things to learn. I love learning languages and frameworks, and this is a chance for me to learn a whole new technology, and I can't pass that up.
+### **Potential**
+This is really the most important, and how I have justified the project to my inner tech lead. Having only a high-level understanding of the technology and  without understanding the limitations of 
+the technology, I have a few ideas for potential applications. As I learn more, I wholeheartedly expect for some of those ideas to drop off as less important or too complicated, but I'm starting with 
+bright, hopeful eyes.
+
+## Toolset
+When starting a new project a (at least initial) toolset needs to be defined. I've decided that I want tho use this project to learn a little more about .NET Core, so that's what I've gone with.
+I've used C# on a few projects, but this will be my first deep dive into the new platform.
+
+## So Far
+I've decided to follow [this](https://www.c-sharpcorner.com/article/blockchain-basics-building-a-blockchain-in-net-core/) tutorial in order to build a chain from scratch. So far I have built the 
+first post and set up a few tests. The blog post doesn't really go through how to test, so I've set up test following the instructions in the GitHub docs found 
+[here](https://github.com/dotnet/docs/blob/master/docs/core/testing/unit-testing-with-dotnet-test.md). 
+
+So far I haven't struggled with too much, though at present all I have is a super simple console app that creates a chain and adds a few to it. The repo for it right now is private, but once I have 
+a working model, I intend to put it out in the wild.
+`,
+        tools: [ '.NET Core', 'MacBook', 'High Sierra' ],
+        tags: [ 'net', 'core', 'vsc', 'backend', 'blockchain' ],
+        bibliography: [
+          'https://www.c-sharpcorner.com/article/blockchain-basics-building-a-blockchain-in-net-core/',
+          'https://github.com/dotnet/docs/blob/master/docs/core/testing/unit-testing-with-dotnet-test.md',
+        ]
       }
+      //endregion
     ];
     return { blogs };
   }
