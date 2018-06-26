@@ -2,6 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Component, DebugElement } from '@angular/core';
 
+import { MarkdownModule, MarkdownService, MarkedOptions } from 'ngx-markdown';
+
 import { BlogComponent } from './blog.component';
 
 describe('BlogComponent', () => {
@@ -27,7 +29,9 @@ describe('BlogComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BlogComponent ]
+      imports: [ MarkdownModule ],
+      declarations: [ BlogComponent ],
+      providers: [ MarkdownService, MarkedOptions ]
     })
     .compileComponents();
   }));
@@ -56,7 +60,7 @@ describe('BlogComponent', () => {
     expect.assertions(6);
     expect(title.nativeElement.textContent).toEqual(expectedBlog.title);
     expect(date.nativeElement.textContent).toEqual(expectedBlog.date);
-    expect(body.nativeElement.textContent).toEqual(expectedBlog.body);
+    expect(body.nativeElement.textContent.trim()).toEqual(expectedBlog.body);
     expect(tools.length).toEqual(expectedBlog.tools.length);
     expect(bibs.length).toEqual(expectedBlog.bibliography.length);
     expect(tags.nativeElement.textContent).toEqual(expectedBlog.tags.join(', '));

@@ -3,6 +3,8 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { HttpModule } from '@angular/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
+import { MarkdownModule } from 'ngx-markdown';
+
 import { BlogFetcherService } from './blog-fetcher.service';
 import { InMemoryDataService } from './in-memory-data.service';
 import { Blog } from './blog';
@@ -13,7 +15,8 @@ describe('BlogFetcherService', () => {
       imports: [
         HttpClientTestingModule,
         HttpModule,
-        HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService)
+        HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService),
+        MarkdownModule.forRoot()
       ],
       providers: [ BlogFetcherService, InMemoryDataService ]
     });

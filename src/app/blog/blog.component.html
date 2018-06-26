@@ -1,8 +1,8 @@
 <h1 class="mat-display-1">{{ blog.title }}</h1>
 <div id="author">by: Daniel McKerrocher</div>
 <div id="date">{{ blog.date }}</div>
-<div id="blog-body" [innerHtml]="blog.body"></div>
-<div id="tools" *ngIf="blog.tools"> 
+<div id="blog-body" markdown [data]="blog.body"></div>
+<div id="tools" *ngIf="blog.tools">
   <h3>Tools Used:</h3>
   <ul>
     <li class="tool" *ngFor="let tool of blog.tools">{{ tool }}</li>
@@ -20,4 +20,3 @@
   <h3>Tags:</h3>
   [ <span class="tag">{{ blog.tags.join(', ') }}</span> ]
 </div>
-

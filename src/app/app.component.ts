@@ -11,7 +11,6 @@ import { Blog } from './blog';
 export class AppComponent implements OnInit {
   blogs: Blog[];
   blog: Blog;
-  title = 'app';
 
   constructor(private blogFetcherService: BlogFetcherService) {}
 
