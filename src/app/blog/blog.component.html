@@ -1,11 +1,7 @@
 <h1 class="mat-display-1">{{ blog.title }}</h1>
 <div id="author">by: Daniel McKerrocher</div>
 <div id="date">{{ blog.date }}</div>
-<img src="/assets/blogs/asdfawefa.txt">
-src/assets/blogs/story-so-far.md
-<section>
-<div markdown [src]="'assets/blogs/logo.'"></div>
-</section>
+<div id="blog-body" markdown [data]="blog.body"></div>
 <div id="tools" *ngIf="blog.tools">
   <h3>Tools Used:</h3>
   <ul>
@@ -24,5 +20,3 @@ src/assets/blogs/story-so-far.md
   <h3>Tags:</h3>
   [ <span class="tag">{{ blog.tags.join(', ') }}</span> ]
 </div>
-
-src/assets/blogs/story-so-far.md

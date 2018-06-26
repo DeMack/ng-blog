@@ -3,8 +3,8 @@ export class Blog {
   title: string;
   date: string;
   project: string;
+  body: string;
   tools: string[];
   tags: string[];
   bibliography: string[];
-  fileName: string;
 }
